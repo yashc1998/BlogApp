@@ -28,6 +28,7 @@ public class SharedPrefManager {
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
+    private String KEY_REFRESHED_TOKEN_ID = "refreshedtoken";
 
     private SharedPrefManager(Context context) {
         mCtx = context;
@@ -49,6 +50,7 @@ public class SharedPrefManager {
         editor.putString(KEY_USERNAME, user.getmUsername());
         editor.putString(KEY_PROFILEPIC, user.getmProfilePic());
         editor.putString(KEY_REGISTERDATE, user.getmRegisterDate());
+        editor.putString(KEY_TOKEN_ID, user.getTokenID());
         editor.putString(KEY_FULLNAME, user.getmFullName());
         editor.putString(KEY_COLLEGE, user.getmCollege());
         editor.putString(KEY_COURSE, user.getmCourse());
@@ -90,4 +92,24 @@ public class SharedPrefManager {
         mCtx.startActivity(new Intent(mCtx, LoginActivity.class));
     }
 
+    public String getKeyRefreshedToken(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_REFRESHED_TOKEN_ID, null);
+    }
+
+    public void setKeyRefreshedTokenId(String keyRefreshedTokenId) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_REFRESHED_TOKEN_ID, keyRefreshedTokenId);
+        editor.apply();
+        editor.commit();
+    }
+
+    public void setKeyTokenId(String keyTokenId) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_TOKEN_ID, keyTokenId);
+        editor.apply();
+        editor.commit();
+    }
 }

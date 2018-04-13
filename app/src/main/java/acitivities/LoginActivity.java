@@ -29,6 +29,8 @@ import universite.com.parasite.R;
 import universite.com.parasite.SharedPrefManager;
 import universite.com.parasite.VolleySingleton;
 
+import static universite.com.parasite.Constants.BASE_URL;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText loginEmail, loginPassword;
@@ -128,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 
         VolleySingleton.getInstance(LoginActivity.this).addToRequestQueue(loginRequest);
     }
+
 
     private boolean validateFields(String email, String password){
         if(TextUtils.isEmpty(email)){

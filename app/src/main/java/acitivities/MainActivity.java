@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,11 +20,25 @@ import android.widget.FrameLayout;
 import android.support.v7.widget.SearchView;
 import android.widget.ImageView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import fragments.AboutFragment;
 import fragments.AdmissionsFragment;
 import fragments.HomeFragment;
 import fragments.ProfileFragment;
+import universite.com.parasite.MyFirebaseInstanceIdService;
 import universite.com.parasite.R;
+import universite.com.parasite.SharedPrefManager;
+import universite.com.parasite.VolleySingleton;
+
+import static universite.com.parasite.Constants.BASE_URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        updateToken(SharedPrefManager.getInstance(this).getKeyRefreshedToken());
 
         homeFragment = new HomeFragment();
         final AdmissionsFragment admissionsFragment = new AdmissionsFragment();
@@ -197,7 +214,31 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void updateToken(final String token){
+        Log.v(MyFirebaseInstanceIdService.class.getSimpleName(), "updateToken() called");
+        StringRequest tokenUpdate = new StringRequest(Request.Method.POST, BASE_URL + "update_token.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
 
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("token", token);
+                map.put("id", SharedPrefManager.getInstance(MainActivity.this).getUser().getmID());
+
+                return map;
+            }
+        };
+
+        VolleySingleton.getInstance(MainActivity.this).addToRequestQueue(tokenUpdate);
+    }
 
 
 }

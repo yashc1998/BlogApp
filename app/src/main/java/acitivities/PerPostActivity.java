@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,14 +62,16 @@ public class PerPostActivity extends AppCompatActivity implements View.OnClickLi
 
         final boolean[] isImageFitToScreen = {false};
 
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 350);
+
         if(images!=null)
             for (final String image : images){
                 Log.v(PerPostActivity.class.getSimpleName(), image+"\n");
                 final ImageView imageView = new ImageView(this);
-                imageView.setMaxWidth(linearLayout.getWidth());
-                imageView.setMaxHeight(imageView.getHeight());
-                imageView.setPadding(20, 0, 20, 0);
-//                Glide.with(this).load(Constants.HOST_URL + "/images/postimg/"+image).into(imageView);
+                imageView.setLayoutParams(params);
+//                imageView.setMaxWidth(linearLayout.getWidth());
+//                imageView.setMaxHeight(100);
+                imageView.setPadding(20, 0, 20, 20);
                 Picasso.get().load(Constants.HOST_URL + "/images/postimg/"+image).into(imageView);
                 linearLayout.addView(imageView, 3);
 
