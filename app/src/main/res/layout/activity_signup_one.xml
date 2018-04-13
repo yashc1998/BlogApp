@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#ECECEC"
+    android:layout_height="match_parent"
+    tools:context="universite.com.parasite.Acitivities.SignupOneActivity">
+
+    <View
+        android:id="@+id/signupOne_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="119dp"
+        android:background="#20262C">
+    </View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/signupOne_top_view"
+        android:layout_centerHorizontal="true"
+        android:text="ParaSite"
+        android:layout_marginBottom="24dp"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/signupOne_username"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/signupOne_top_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="24dp"
+        android:hint="Username"
+        android:textColor="@color/AppColor"
+        android:textColorHint="@color/AppColor" />
+
+    <EditText
+        android:id="@+id/signupOne_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/signupOne_username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="24dp"
+        android:hint="Fullname"
+        android:textColor="@color/AppColor"
+        android:textColorHint="@color/AppColor" />
+
+    <EditText
+        android:id="@+id/signupOne_email"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/signupOne_fullname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="24dp"
+        android:hint="Email"
+        android:textColor="@color/AppColor"
+        android:textColorHint="@color/AppColor" />
+
+    <EditText
+        android:id="@+id/signupOne_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/signupOne_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="24dp"
+        android:hint="********"
+        android:textColor="@color/AppColor"
+        android:textColorHint="@color/AppColor" />
+
+    <Button
+        android:id="@+id/signupOne_continue_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:layout_below="@id/signupOne_password"
+        android:background="@drawable/round_edittext"
+        android:layout_marginTop="36dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/AppColor"
+        android:textColor="@android:color/white"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"/>
+
+    <Button
+        android:id="@+id/signupOne_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:transitionName="login-btn"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:text="Login Instead?"
+        android:textSize="13sp"
+        android:background="#20262C"
+        android:textColor="@android:color/white"/>
+
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:id="@+id/per_post_layout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="acitivities.PerPostActivity">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/per_post_toolbar"
+            android:elevation="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            app:titleTextColor="@color/AppColor"
+            android:paddingRight="24dp"
+            app:title=""
+            android:layout_height="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <TextView
+            android:id="@+id/per_post_title"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:maxLines="2"
+            android:inputType="textCapWords"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:textSize="20sp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="Converge - P.G.D.A.V Internshipp Fair"/>
+
+        <TextView
+            android:id="@+id/per_post_body"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="24dp"
+            android:lineSpacingExtra="1dp"
+            android:paddingRight="24dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n\nIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. \nIt was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."/>
+
+        <Button
+            android:id="@+id/per_post_comment_btn"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+            android:gravity="start|center_vertical"
+            android:text="Comments" />
+
+    </LinearLayout>
+</ScrollView>

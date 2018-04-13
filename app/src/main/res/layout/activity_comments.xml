@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="acitivities.CommentsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/comments_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="21sp"
+            app:fontFamily="@font/roboto_medium"
+            android:layout_marginStart="10dp" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:id="@+id/no_comment"
+        android:layout_width="match_parent"
+        android:layout_below="@id/comments_toolbar"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:text="No comments on this Post!"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/comments_recycler_view"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@id/comments_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/comment_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Add your comment"
+            android:layout_weight="4"
+            android:lines="1" />
+
+
+        <ImageButton
+            android:id="@+id/send_comment_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_send_black_24dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
