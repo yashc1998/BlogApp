@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_profile : {
 //                        getSupportActionBar().hide();
+                        toolbar.findViewById(R.id.toolbar_post_search).setVisibility(View.GONE);
                         openFragment(new ProfileFragment());
                         mDrawerLayout.closeDrawers();
                         return true;

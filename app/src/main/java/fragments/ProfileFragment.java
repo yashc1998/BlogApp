@@ -3,7 +3,6 @@ package fragments;
 
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,10 +22,6 @@ import android.widget.TextView;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import adapters.InNewsAdapter;
@@ -50,7 +45,7 @@ public class ProfileFragment extends Fragment {
     private ProgressBar progressBar;
     private TextView collegeName, courseName;
     private UserData userData;
-    private int nameTextColor = Color.BLACK;
+    private int nameTextColor = Color.WHITE;
     private Bitmap profileImageBitmap;
 
     public ProfileFragment() {
@@ -70,7 +65,6 @@ public class ProfileFragment extends Fragment {
                 Log.v(ProfileFragment.class.getSimpleName(), modal.getmProfilePic());
                 collegeName.setText(SharedPrefManager.getInstance(getActivity()).getUser().getmCollege());
                 courseName.setText(SharedPrefManager.getInstance(getActivity()).getUser().getmCourse());
-
                 Picasso.get()
                         .load(modal.getmProfilePic())
                         .resize(0, 300)
@@ -79,9 +73,11 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
         toolbarLayout = view.findViewById(R.id.collapsingToolbar_profile);
         toolbarLayout.setTitle(SharedPrefManager.getInstance(getActivity()).getUser().getmFullName());
-//        toolbarLayout.setExpandedTitleTextColor(ColorStateList.valueOf(nameTextColor));
+        toolbarLayout.setExpandedTitleTextColor(ColorStateList.valueOf(nameTextColor));
+        toolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
         
 
         progressBar = view.findViewById(R.id.profile_progress_bar);

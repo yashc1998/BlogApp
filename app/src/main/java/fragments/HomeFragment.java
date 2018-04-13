@@ -103,7 +103,8 @@ public class HomeFragment extends Fragment {
     }
 
     public void search(String query){
-        newsAdapter.getFilter().filter(query);
+        if(newsAdapter!=null)
+            newsAdapter.getFilter().filter(query);
     }
 
 }
