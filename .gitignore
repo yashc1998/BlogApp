@@ -7,3 +7,24 @@
 /build
 /captures
 .externalNativeBuild
+<<<<<<< HEAD
+=======
+output.json
+.navigation
+
+*.apk
+*.ap_
+
+*.dex
+
+*.class
+
+bin/
+gen/
+
+local.properties
+
+Thumbs.db
+
+.DS_Dtore
+>>>>>>> Everything done except notifications
