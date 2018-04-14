@@ -62,17 +62,17 @@ public class PerPostActivity extends AppCompatActivity implements View.OnClickLi
 
         final boolean[] isImageFitToScreen = {false};
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 350);
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 0);
 
         if(images!=null)
             for (final String image : images){
                 Log.v(PerPostActivity.class.getSimpleName(), image+"\n");
                 final ImageView imageView = new ImageView(this);
-                imageView.setLayoutParams(params);
+//                imageView.setLayoutParams(params);
 //                imageView.setMaxWidth(linearLayout.getWidth());
 //                imageView.setMaxHeight(100);
                 imageView.setPadding(20, 0, 20, 20);
-                Picasso.get().load(Constants.HOST_URL + "/images/postimg/"+image).into(imageView);
+                Picasso.get().load(Constants.HOST_URL + "/images/postimg/"+image).resize(600, 0).into(imageView);
                 linearLayout.addView(imageView, 3);
 
                 imageView.setOnClickListener(new View.OnClickListener() {

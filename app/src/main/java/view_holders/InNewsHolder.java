@@ -63,7 +63,7 @@ public class InNewsHolder extends RecyclerView.ViewHolder {
         if(modal.getmCreatorContentImage()!=null){
             for(String image : modal.getmCreatorContentImage()){
 //                Glide.with(context).load(Constants.HOST_URL + "/images/postimg/"+image).apply(new RequestOptions().dontAnimate()).into(creatorContentImage);
-                Picasso.get().load(Constants.HOST_URL + "/images/postimg/"+image).placeholder(R.drawable.bg).resize(300, 170).into(creatorContentImage);
+                Picasso.get().load(Constants.HOST_URL + "/images/postimg/"+image).placeholder(R.drawable.bg).resize(600, 0).into(creatorContentImage);
                 creatorContentImage.setVisibility(View.VISIBLE);
             }
         }
