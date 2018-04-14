@@ -5,15 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
 
 import modals.PostModal;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -56,8 +54,7 @@ public class InNewsHolder extends RecyclerView.ViewHolder {
 
         Picasso.get()
                 .load(modal.getmCreatorProfImage())
-                .resize(40, 40)
-                .placeholder(R.drawable.ic_person_black_24dp)
+                .placeholder(R.drawable.ic_person_white_24dp)
                 .into(creatorProfImage);
 
         if(modal.getmCreatorContentImage()!=null){
@@ -68,11 +65,11 @@ public class InNewsHolder extends RecyclerView.ViewHolder {
             }
         }
 
-
         creatorName.setText(modal.getmCreatorName());
         creatorTime.setText(modal.getmCreatorTime());
         creatorContentTitle.setText(modal.getmPostTitle());
         creatorContentText.setText(Html.fromHtml(modal.getmCreatorContentText()));
+        creatorContentText.setMovementMethod(LinkMovementMethod.getInstance());
         totalComments.setText(modal.getmTotalComments());
 
 
@@ -89,5 +86,21 @@ public class InNewsHolder extends RecyclerView.ViewHolder {
 
             }
         });
+    }
+
+    public String timeDiff(long start, long end){
+
+        long diff = end - start;
+        String date = "";
+
+        if(diff < 60 && diff > 0){
+            date = (diff/60) + "m ago";
+        }else if (diff >60 && diff < 2592000){
+            date =  (diff/(60*24)) + " days ago";
+        }else if (diff>=2592000){
+            date =  (diff/(60*24*30)) + " months ago";
+        }
+
+        return date;
     }
 }

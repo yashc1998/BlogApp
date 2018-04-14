@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -59,6 +60,7 @@ public class PerPostActivity extends AppCompatActivity implements View.OnClickLi
 
         mPostTitle.setText(capitalize(title));
         mPostBody.setText(Html.fromHtml(body));
+        mPostBody.setMovementMethod(LinkMovementMethod.getInstance());
 
         final boolean[] isImageFitToScreen = {false};
 

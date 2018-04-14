@@ -47,9 +47,10 @@ public class FetchComments {
                         String commentId = object.getString("c_id");
                         String commentBody = object.getString("c_body");
                         String uName = object.getString("u_name");
+                        String uPic = object.getString("u_pic");
 
 
-                        comments.add(new CommentsModal(uName, commentId, commentBody, "6"));
+                        comments.add(new CommentsModal(uName, commentId, commentBody, "6", uPic));
 
                     }
                     callback.CommentfetchSuccess(comments);

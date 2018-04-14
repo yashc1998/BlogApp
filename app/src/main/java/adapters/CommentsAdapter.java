@@ -32,6 +32,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsHolder> {
     public void onBindViewHolder(CommentsHolder holder, int position) {
 
         holder.updateCommentUI(commentsModals.get(position));
+
     }
 
     @Override

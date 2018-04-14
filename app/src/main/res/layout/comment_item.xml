@@ -4,32 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/comment_uname"
-        android:layout_width="match_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="17sp"
-        android:text="Yash"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/commentor_image"
+        android:layout_width="40dp"
+        android:layout_gravity="center"
+        android:src="@drawable/person_black"
+        android:layout_height="40dp" />
 
-    <TextView
-        android:id="@+id/comment_body"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="6dp"
-        android:text="Wow!! That's awesome"/>
+        android:orientation="vertical">
 
-    <View
+        <TextView
+            android:id="@+id/comment_uname"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:text="Yash"/>
+
+        <TextView
+            android:id="@+id/comment_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:fontFamily="@font/lato"
+            android:layout_marginTop="4dp"
+            android:text="Wow!! That's awesome"/>
+
+
+    </LinearLayout>
+
+
+
+   <!-- <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@android:color/darker_gray"/>-->
 
 </LinearLayout>

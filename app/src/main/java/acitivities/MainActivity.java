@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
 //                        getSupportActionBar().show();
                         toolbar.findViewById(R.id.toolbar_post_search).setVisibility(View.VISIBLE);
                         openFragment(homeFragment);
-                        toolbar.setSubtitle("In News");
+                        toolbar.setTitle("UniverSite");
+                        toolbar.setSubtitle("");
                         toolbar.setSubtitleTextColor(Color.WHITE);
                         mDrawerLayout.closeDrawers();
                         return true;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 //                        getSupportActionBar().show();
                         toolbar.findViewById(R.id.toolbar_post_search).setVisibility(View.GONE);
                         openFragment(admissionsFragment);
+                        toolbar.setTitle("Admissions");
                         toolbar.setSubtitle("");
                         toolbar.setSubtitleTextColor(Color.WHITE);
                         mDrawerLayout.closeDrawers();
@@ -115,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 //                        getSupportActionBar().show();
                         toolbar.findViewById(R.id.toolbar_post_search).setVisibility(View.GONE);
                         openFragment(new AboutFragment());
+                        toolbar.setTitle("About Us");
                         toolbar.setSubtitle("");
                         toolbar.setSubtitleTextColor(Color.WHITE);
                         mDrawerLayout.closeDrawers();
@@ -124,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_profile : {
 //                        getSupportActionBar().hide();
                         toolbar.findViewById(R.id.toolbar_post_search).setVisibility(View.GONE);
+                        toolbar.setTitle("Profile");
+                        toolbar.setSubtitle("");
+                        toolbar.setSubtitleTextColor(Color.WHITE);
                         openFragment(new ProfileFragment());
                         mDrawerLayout.closeDrawers();
                         return true;

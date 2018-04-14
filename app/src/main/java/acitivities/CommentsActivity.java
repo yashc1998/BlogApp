@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +32,7 @@ import java.util.Map;
 import adapters.CommentsAdapter;
 import controllers.CommentsAsyncResponce;
 import data_provider.FetchComments;
+import de.hdodenhof.circleimageview.CircleImageView;
 import modals.CommentsModal;
 import universite.com.parasite.R;
 import universite.com.parasite.SharedPrefManager;
@@ -48,6 +50,7 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
     private String post_id;
     private ProgressDialog progressDialog;
     private TextView noComments;
+    private CircleImageView commentPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,8 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
 
         commentsRecyclerView = findViewById(R.id.comments_recycler_view);
         commentsRecyclerView.setHasFixedSize(true);
+        commentsRecyclerView.addItemDecoration(new DividerItemDecoration(CommentsActivity.this,
+                DividerItemDecoration.VERTICAL));
         commentsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         post_id = getIntent().getStringExtra("post_id");
@@ -123,6 +128,7 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
             case R.id.send_comment_btn:{
                 if(!TextUtils.isEmpty(comment.getText().toString().trim())) {
                     String commentBody = comment.getText().toString().trim();
+                    comment.setText("");
                     sendCommentToServer(commentBody);
                 }
             }

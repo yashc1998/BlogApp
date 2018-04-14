@@ -5,12 +5,12 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,12 +41,14 @@ public class ProfileFragment extends Fragment {
 
     private CollapsingToolbarLayout toolbarLayout;
     private RecyclerView personal_posts_recyclerview;
+    private AppBarLayout appBarLayout;
     private ImageView profileImage;
     private ProgressBar progressBar;
     private TextView collegeName, courseName;
     private UserData userData;
     private int nameTextColor = Color.WHITE;
     private Bitmap profileImageBitmap;
+    private Toolbar profileToolbar;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -58,7 +60,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View view = inflater.inflate(R.layout.fragment_profile, container, false);
         userData.getUserData(SharedPrefManager.getInstance(getActivity()).getUser().getmID(), new UserAsyncResponce() {
             @Override
             public void userdata(UserModal modal) {
@@ -68,11 +70,32 @@ public class ProfileFragment extends Fragment {
                 Picasso.get()
                         .load(modal.getmProfilePic())
                         .resize(0, 300)
-                        .placeholder(R.drawable.ic_person_black_24dp)
+                        .placeholder(R.drawable.ic_person_white_24dp)
                         .into(profileImage);
             }
         });
 
+        profileToolbar = view.findViewById(R.id.profile_toolbar);
+        int count = 0;
+        appBarLayout = view.findViewById(R.id.appbar_layout);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (Math.abs(verticalOffset)-appBarLayout.getTotalScrollRange() == 0)
+                {
+
+//                    view.findViewById(R.id.profile_info_layout).animate().alpha(0).scaleY(0);
+//                    personal_posts_recyclerview.animate().translationYBy(-200);
+                }
+                else
+                {
+//                    view.findViewById(R.id.profile_info_layout).animate().alpha(1).scaleY(1);
+//                    personal_posts_recyclerview.animate().translationYBy(200);
+
+
+                }
+            }
+        });
 
         toolbarLayout = view.findViewById(R.id.collapsingToolbar_profile);
         toolbarLayout.setTitle(SharedPrefManager.getInstance(getActivity()).getUser().getmFullName());
@@ -92,7 +115,7 @@ public class ProfileFragment extends Fragment {
         Picasso.get()
                 .load(SharedPrefManager.getInstance(getActivity()).getUser().getmProfilePic())
                 .resize(0, 300)
-                .placeholder(R.drawable.ic_person_black_24dp)
+                .placeholder(R.drawable.ic_person_white_24dp)
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .into(profileImage);
 
@@ -119,6 +142,8 @@ public class ProfileFragment extends Fragment {
                 personal_posts_recyclerview.setAdapter(newsAdapter);
             }
         });
+
+
 
         return view;
     }
