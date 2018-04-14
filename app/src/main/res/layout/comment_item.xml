@@ -34,10 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
+            android:autoLink="web"
             android:paddingRight="10dp"
+            android:textColorLink="@color/AppColor"
             android:fontFamily="@font/lato"
             android:layout_marginTop="4dp"
-            android:text="Wow!! That's awesome"/>
+            android:text="google.com"/>
 
 
     </LinearLayout>
