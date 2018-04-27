@@ -18,22 +18,26 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name="acitivities.SplashActivity"
+            android:theme="@style/SplashScreen">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+
         <activity android:name="acitivities.MainActivity" />
         <activity android:name="acitivities.SignupOneActivity" />
         <activity android:name="acitivities.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="acitivities.PerPostActivity" />
         <activity android:name="acitivities.CommentsActivity" />
-        <activity android:name="acitivities.AddEventActivity"/>
-        <service
-            android:name=".MyFirebaseInstanceIdService">
+        <activity android:name="acitivities.AddEventActivity" />
+
+        <service android:name=".MyFirebaseInstanceIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
     </application>
